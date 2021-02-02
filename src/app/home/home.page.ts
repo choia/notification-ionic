@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { LocalNotifications } from "@ionic-native/local-notifications/ngx";
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private localNotifications: LocalNotifications) {}
+
+  simpleNotify() {
+    this.localNotifications.schedule({
+      id: 1,
+      title: 'Hi Hi',
+      text: 'Testing out'
+    })
+  }
 
 }
